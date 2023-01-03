@@ -2,6 +2,7 @@ from win10toast import ToastNotifier
 from datetime import datetime
 import random
 import time
+import win32gui
 
 def sleep():
     time.sleep(1)
@@ -77,7 +78,10 @@ def check_in(time_set):
                 "Remember that drinking water will keep you from being grumpy and feeling bad later.",
                 "Remember that everything starts from somewhere. You'll feel better once you start scaling the mountain.",
                 "Remember to keep something happy in your space so you can remember life is about having fun.",
-                "Remember that you made this bot to keep yourself in check. It is here to help you!"
+                "Remember that you made this bot to keep yourself in check. It is here to help you!",
+                "Remember to do your laundry on time. There's not really a bad time to do laundry.",
+                "Remember to clean all the dirty dishes off of your desk. Dirty desk is a dirty mind (not like that).",
+                "Remember to clean your work room. It can be distracting if it isn't in good condition."
             ]
             print(affirmations[number])
             sleep()

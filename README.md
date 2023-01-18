@@ -14,3 +14,8 @@ It will prompt for any input, then close itself.
 The script is very simple and is not intended to be advanced. It is simply for making sure that I stay on topic since I have a tendency to wander.
 In the future, I want to implement this onto something like Microsoft Agent so it will pop up a little character that will ask the same questions.
 However, Agent is written in C# so this is unrealistic for me at the moment. Perhaps I will get around to it sometime.
+  
+1/18/2023 Additions  
+- Added changing line for waiting, now displays the amount of time the program has been running and how long until next reminder  
+- Fixed icon, but it only works from C:/Programming/reminderbot. At the moment, there doesn't appear to be a workaround  
+- Changed to initiate when time_left is equal to zero, meaning regardless of the time interval chosen, it will be calculated separately from the if statement

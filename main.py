@@ -1,28 +1,48 @@
 from win10toast import ToastNotifier
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 import time
 import win32gui
+import sys
+import os
 
 def sleep():
     time.sleep(1)
 
-def check_in(time_set):
+def check_in(time_set, start):
+    
     tasks = []
     while True:
-        min = datetime.now().minute
-        if min == 0 or (min == 30 and time_set == "half"):
+        minute = datetime.now().minute
+        sys.stdout.flush()
+        elapsed = round(time.time() - start, 2)
+        if time_set == "15":
+            z = 60 - minute
+            a = 45 - minute
+            b = 30 - minute
+            c = 15 - minute
+            time_left = min([a, b, c, z])
+        elif time_set == "30":
+            a = 60 - minute
+            b = 30 - minute
+            time_left = min([a, b])
+        elif time_set == "60":
+            time_left = 60 - minute
+        print("\rWaiting... (Time elapsed: " + str(timedelta(seconds=elapsed)) + ". Time until next check-in: " + str(time_left) + ")", end='')
+        if time_left == 0:
             toast = ToastNotifier()
+            path = "icon.ico"
+            os.chdir('C:/Programming/reminderbot')
             toast.show_toast(
-                "It's been an hour!",
+                "It's been a while!",
                 "Time to check in with ReminderBot.",
-                icon_path = "./icon.ico",
+                icon_path = path,
                 duration = 10,
                 threaded = True
             )
             word = ""
             while word != "Okay":
-                print("Drink some water. (Type 'Okay' when complete.)")
+                print("\nDrink some water. (Type 'Okay' when complete.)")
                 word = input()
                 if word == "q":
                     return tasks
@@ -91,25 +111,30 @@ def check_in(time_set):
             sleep()
             print("Waiting...")
         else:
-            time.sleep(60)
+            time.sleep(1)
 
 def welcome():
+    start = time.time()
+    print(os.getcwd())
     print("WELCOME TO DAN'S REMINDERBOT v 0.1!")
     sleep()
     print("You will receive a reminder every hour to complete several tasks.")
     sleep()
-    print("Would you like reminders every half hour or hour? (Type 'half' or 'hour'.)")
+    print("Would you like reminders every 15, 30, or 60 minutes? (Type '15', '30' or '60'.)")
     sleep()
     time_set = input()
-    if time_set == "half":
+    if time_set == "15":
+        print("Okay! See you in 15 minutes or so!")
+        sleep()
+    if time_set == "30":
         print("Okay! See you back here at the next half hour!")
         sleep()
-    if time_set == "hour":
+    if time_set == "60":
         print("Okay! See you back here at the next hour!")
         sleep()
     now = datetime.now()
-    print("Waiting...")
-    tasks = check_in(time_set)
+    print("Waiting...", end='')
+    tasks = check_in(time_set, start)
     then = datetime.now()
     elapsed = then - now
     print("Session complete. Your session lasted " + str(elapsed) + " minutes.")

@@ -19,3 +19,7 @@ However, Agent is written in C# so this is unrealistic for me at the moment. Per
 - Added changing line for waiting, now displays the amount of time the program has been running and how long until next reminder  
 - Fixed icon, but it only works from C:/Programming/reminderbot. At the moment, there doesn't appear to be a workaround  
 - Changed to initiate when time_left is equal to zero, meaning regardless of the time interval chosen, it will be calculated separately from the if statement
+  
+1/19/2023 Changes  
+- Fixed the way the timer was displaying (was: 00:00:00.40200, now: 00:00:10)  
+- Fixed interval problems (was retaining that, at minute 45 with 30m intervals, -15 was smaller than 15, now it will only subtract from larger interval)  

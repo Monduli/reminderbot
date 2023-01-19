@@ -2,7 +2,6 @@ from win10toast import ToastNotifier
 from datetime import datetime, timedelta
 import random
 import time
-import win32gui
 import sys
 import os
 
@@ -113,12 +112,13 @@ def check_in(time_set, start):
             sleep()
             print("That's all for now. Check in with you again in a while!")
             sleep()
+            print("Please wait 60 seconds for reminderbot to resume counter.")
+            time.sleep(60)
         else:
             time.sleep(1)
 
 def welcome():
     start = time.time()
-    print(os.getcwd())
     print("WELCOME TO DAN'S REMINDERBOT v 0.1!")
     sleep()
     print("You will receive a reminder every hour to complete several tasks.")

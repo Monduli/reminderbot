@@ -1,5 +1,5 @@
 # reminderbot
-Bot that reminds me to do particular things at either 30m or 1h intervals.
+Bot that reminds me to do particular things at either 30m or 1h intervals (now with 15m intervals).
 
 Very simple Python script that runs in terminal. Asks whether you want a 1 hour interval or a 30 minute interval, then waits until the clock hits either :30 or :00.
 Once this occurs, it asks a series of questions. These could very easily be changed as they are just Python print statements.
@@ -19,6 +19,7 @@ However, Agent is written in C# so this is unrealistic for me at the moment. Per
 - Added changing line for waiting, now displays the amount of time the program has been running and how long until next reminder  
 - Fixed icon, but it only works from C:/Programming/reminderbot. At the moment, there doesn't appear to be a workaround  
 - Changed to initiate when time_left is equal to zero, meaning regardless of the time interval chosen, it will be calculated separately from the if statement
+- Added 15 minute intervals to the allowed inputs  
   
 1/19/2023 Changes  
 - Fixed the way the timer was displaying (was: 00:00:00.40200, now: 00:00:10)  

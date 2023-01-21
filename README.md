@@ -24,3 +24,6 @@ However, Agent is written in C# so this is unrealistic for me at the moment. Per
 1/19/2023 Changes  
 - Fixed the way the timer was displaying (was: 00:00:00.40200, now: 00:00:10)  
 - Fixed interval problems (was retaining that, at minute 45 with 30m intervals, -15 was smaller than 15, now it will only subtract from larger interval)  
+  
+1/20/2023 Changes  
+- Added "play" mode. This just reminds you to drink water and doesn't ask about whether you're focusing on work. Will add more in the future.

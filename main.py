@@ -54,6 +54,7 @@ def check_in(time_set, start, mode):
             )
             word = ""
             while word != "Okay":
+                begin = time.time()
                 print("\nDrink some water. (Type 'Okay' when complete.)")
                 word = input()
                 if word == "q":
@@ -64,6 +65,9 @@ def check_in(time_set, start, mode):
                 else:
                     print("Good job.")
                     sleep()
+                time_taken = round(time.time() - start, 2)
+                print("It took you " + time_taken + " to respond.")
+                sleep()
             if mode != 1:
                 print("Are you focusing on work? (Yes or No)")
                 word = input()

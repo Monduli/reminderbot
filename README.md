@@ -27,3 +27,6 @@ However, Agent is written in C# so this is unrealistic for me at the moment. Per
   
 1/20/2023 Changes  
 - Added "play" mode. This just reminds you to drink water and doesn't ask about whether you're focusing on work. Will add more in the future.
+  
+1/24/2023 Changes  
+- Added time elapsed counter to first prompt. It asks if you drank water, you respond, then it tells you how long it took you to respond to it.  

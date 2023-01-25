@@ -146,18 +146,29 @@ def welcome():
         else:
             ahead = 1
     sleep()
-    print("Would you like reminders every 15, 30, or 60 minutes? (Type '15', '30' or '60'.)")
-    sleep()
-    time_set = input()
-    if time_set == "15":
-        print("Okay! See you in 15 minutes or so!")
+    ahead = 0
+    while ahead != 1:
+        print("Would you like reminders every 15, 30, or 60 minutes? (Type '15', '30' or '60'. Type 'q' to quit.)")
         sleep()
-    if time_set == "30":
-        print("Okay! See you back here at the next half hour!")
-        sleep()
-    if time_set == "60":
-        print("Okay! See you back here at the next hour!")
-        sleep()
+        time_set = input()
+        if time_set == "15":
+            print("Okay! See you in 15 minutes or so!")
+            sleep()
+            ahead = 1
+        elif time_set == "30":
+            print("Okay! See you back here at the next half hour!")
+            sleep()
+            ahead = 1
+        elif time_set == "60":
+            print("Okay! See you back here at the next hour!")
+            sleep()
+            ahead = 1
+        elif time_set == "q":
+            print("Goodbye!")
+            return
+        else:
+            print("You did not enter a valid time.")
+            sleep()
     now = datetime.now()
     print("Waiting...", end='')
     tasks = check_in(time_set, start, mode)
